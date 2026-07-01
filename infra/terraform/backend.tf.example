@@ -1,0 +1,9 @@
+# Copy this file to backend.tf after creating the Terraform state bucket.
+# backend.tf is ignored by git because bucket names are environment-specific.
+#
+# terraform {
+#   backend "gcs" {
+#     bucket = "YOUR_TERRAFORM_STATE_BUCKET"
+#     prefix = "transit-delay-pipeline"
+#   }
+# }

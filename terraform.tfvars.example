@@ -1,0 +1,23 @@
+# Copy to terraform.tfvars locally. terraform.tfvars is ignored by git.
+
+project_id = "your-dedicated-gcp-project-id"
+region     = "us-central1"
+
+# Keep this region aligned with the project plan's low-cost GCS posture.
+storage_location = "US-CENTRAL1"
+
+# Replace after container images exist.
+ingest_image    = "us-central1-docker.pkg.dev/your-dedicated-gcp-project-id/transit-delay-images/ingest:latest"
+api_image       = "us-central1-docker.pkg.dev/your-dedicated-gcp-project-id/transit-delay-images/api:latest"
+dashboard_image = "us-central1-docker.pkg.dev/your-dedicated-gcp-project-id/transit-delay-images/dashboard:latest"
+
+# Feed URLs are not secrets, but keep them configurable.
+mbta_static_url       = ""
+mbta_trip_updates_url = ""
+
+refresh_mode   = "cost_safe"
+scheduler_cron = "*/5 * * * *"
+
+# Optional. Leave null to manage budget alerts manually in the console.
+billing_account_id    = null
+monthly_budget_amount = 5

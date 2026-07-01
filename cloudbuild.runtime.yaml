@@ -1,0 +1,29 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - pipeline/Dockerfile
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/transit-delay-images/ingest:latest
+      - .
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - api/Dockerfile
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/transit-delay-images/api:latest
+      - .
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - app/Dockerfile
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/transit-delay-images/dashboard:latest
+      - .
+images:
+  - us-central1-docker.pkg.dev/$PROJECT_ID/transit-delay-images/ingest:latest
+  - us-central1-docker.pkg.dev/$PROJECT_ID/transit-delay-images/api:latest
+  - us-central1-docker.pkg.dev/$PROJECT_ID/transit-delay-images/dashboard:latest

@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+*.egg-info/
+
+# IDE / local machine
+.idea/
+.vscode/
+.agents/
+.codex/
+researcher.md
+.lab/
+.lab.bak.*/
+.DS_Store
+Thumbs.db
+
+# Environment and secrets
+.env
+.env.*
+.streamlit/secrets.toml
+secrets.toml
+*.pem
+*.key
+*.p12
+*.pfx
+*.ppk
+application_default_credentials.json
+adc.json
+*service-account*.json
+*credentials*.json
+*secret*.json
+*token*.json
+*key*.json
+
+# Terraform local state and sensitive inputs
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+backend.tf
+
+# Generated logs and runtime artifacts
+logs/
+*.log
+
+# Local/private docs and generated outputs
+docs/gcp_setup_plan.md
+docs/private/
+docs/*.local.md
+planning/
+local_serving*/
+data/

@@ -1,0 +1,7 @@
+project_name = "Transit Network Delay Pipeline"
+environment  = "dev"
+region       = "us-central1"
+
+extra_labels = {
+  purpose = "learning"
+}
