@@ -83,7 +83,13 @@ variable "refresh_mode" {
 variable "scheduler_cron" {
   description = "Cloud Scheduler cron expression for the ingestion job."
   type        = string
-  default     = "*/30 * * * *"
+  default     = "*/5 * * * *"
+}
+
+variable "ingest_scheduler_paused" {
+  description = "Whether the MBTA ingestion scheduler should be paused."
+  type        = bool
+  default     = false
 }
 
 variable "serving_scheduler_cron" {
@@ -185,7 +191,7 @@ variable "retraining_recent_snapshot_count" {
 variable "retraining_horizon_minutes" {
   description = "Future-label horizon for the segment-risk retraining job. Keep this at or above the ingestion cadence."
   type        = number
-  default     = 35
+  default     = 10
 }
 
 variable "retraining_promote_model" {

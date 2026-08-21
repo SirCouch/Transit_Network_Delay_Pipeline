@@ -5,6 +5,7 @@ resource "google_cloud_scheduler_job" "ingest" {
   description = "Runs the MBTA ingestion Cloud Run Job on the cost-safe cadence"
   schedule    = var.scheduler_cron
   time_zone   = var.scheduler_time_zone
+  paused      = var.ingest_scheduler_paused
 
   http_target {
     http_method = "POST"

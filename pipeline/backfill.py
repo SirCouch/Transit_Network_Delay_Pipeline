@@ -143,6 +143,13 @@ def decode_snapshot_dir(
         sample_every_minutes=sample_every_minutes,
         include_offsets_minutes=include_offsets_minutes,
     )
+    return decode_snapshot_paths(snapshots, output_path)
+
+
+def decode_snapshot_paths(
+    snapshots: list[str | Path],
+    output_path: str | Path,
+) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for snapshot in snapshots:
         rows.extend(decode_snapshot_file(snapshot))
